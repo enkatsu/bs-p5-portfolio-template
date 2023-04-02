@@ -12,7 +12,8 @@ function setup() {
             x: random(r, width - r), y: random(r, height - r),
             sx: random(-2.0, 2.0), sy: random(-2.0, 2.0),
             r: r,
-            c: color(100, 200, 250, 150),
+            c1: color(100, 200, 250, 150),
+            c2: color(250, 200, 100, 150),
         });
     }
 }
@@ -33,7 +34,11 @@ function draw() {
         }
 
         noStroke();
-        fill(ball.c);
+        if (dist(mouseX, mouseY, ball.x, ball.y) < ball.r) {
+            fill(ball.c2);
+        } else {
+            fill(ball.c1);
+        }
         ellipse(ball.x, ball.y, ball.r * 2, ball.r * 2);
     }
 }
